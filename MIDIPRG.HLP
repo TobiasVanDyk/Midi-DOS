@@ -1,0 +1,139 @@
+³ HARDWARE CONFIGURATION : Page 1                                         ³
+³ (1) Configure: Interrupt Request (IRQ), Serial Port (SER), Board Freq.  ³
+³     (XTAL) by using the DOS commandline :                               ³
+³     MIDIWISE IRQY:X SERY:X XTAL:X [ENTER].                              ³
+³     X : IRQY: Number as set on serial card, with X = [3,4,5,or 7].      ³
+³         SERY: Number (COM port) as set on card, with X = [1,2,3,or 4].  ³
+³         XTAL: Board oscillating frequency, X=[1,2,3,4]=[5,10,15,20] MHz.³
+³         (X=E or X=D: Enable or disable specified serial port.)          ³
+³     Y : Specify Serial Port assignment to Programme Ports [A,B,C,D] for ³
+³         SERY: and IRQY: parameters.                                     ³
+³ (2) Disable Ports with SERB:D, Port B Disabled, Enable with SERB:E.     ³
+³     Program will do auto-detection of COM1 to COM4. The Disable-Enable  ³
+³     state are indicated by Ena='Y' in the Menu:Options display. Serial  ³
+³     port detection are indicated by Inst='Y' or 'N' in the same panel.  ³
+³ (3) The order, number of spaces, sequence, and case of the 2 parameters ³
+³     above is not important: Sera:1 Irqc:3, IRQC:3 SERA:1, irqC:3 serA:1,³
+³     are all allowed. If any equivalent parameter is repeated the last   ³
+³     definition in the commandline will be used.                         ³
+³ (4) The hardware configuration is stored in the file HW.CFG. Do not use ³
+³     this name for any of the Key, Channel or Data Files, and must be    ³
+³     present in the same directory as the main executable (Midiwise.exe) ³
+³     file. (Size of HW.CFG = 28 bytes.)                                  ³
+³                                                                         ³
+³ HARDWARE CONFIGURATION : Page 2                                         ³
+³ (6) Problems: Check for IRQ assignment clashes, for example a network,  ³
+³     printer, or sound card using the same IRQ number. It is possible to ³
+³     use sections of the program with no IRQ assignment, for example the ³
+³     Code Transmitter, Buffer Read and Send Options from the Main Menu   ³
+³     are used in Polling Mode i.e. IRQ line not used. ( The Activate-Run ³
+³     Option does require an IRQ assignment. ) Note that the other        ³
+³     options do need a SERY:X allocation however, i.e. to configure these³
+³     use the DOS commandline [MidiWise SERY:X].                          ³
+³ (7) Examples and Set-Up :                                               ³
+³     (a) MIDIWISE SERA:3 SERB:4 SERC:1 SERD:2 SERD:D SERC:D SERA:E SERB:E³
+³         Assign Port A = Serial Port 3 (COM3), and enable Port A.        ³
+³         Assign Port B = Serial Port 4 (COM4), and enable Port B.        ³
+³         Assign Port C = Serial Port 1 (COM1), and enable Port C.        ³
+³         Assign Port D = Serial Port 2 (COM2), and enable Port D.        ³
+³         This means that when Port A is selected in the program, output  ³
+³         and input to Port A will be sent-received by COM3. Note that    ³
+³         only Ports A and B may be selected for input simultanously, but ³
+³         any combination of A, B, C, D for output.                       ³
+³     (b) MIDIWISE SERA:4 IRQA:3 IRQD:7 XTAL:2                            ³
+³         Assign PortA to COM4, Set PortD (previously assigned to COMX)   ³
+³         for INT Request 7, PortA to IRQ 3, use XTAL Freq=10 MHz.        ³
+³                                                                         ³
+³ DOS COMMAND LINE PARAMETERS  Page 1                                     ³
+³ (1) Hardw.Config:[SERY:X X=1,2,3,4,D,E. Y=A,B,C,D.] (Assign ComX>PortY) ³
+³                  [IRQY:X X=3,4,5,7 Y=A-D.] (Assign INTReqX>PortY )      ³
+³                  [XTAL:X=1,2,3,4] Xtal freq: 5,10,15,20 MHz.            ³
+³ (2) Midi Config.:[CONF:(D:Drive)(P=Pathname)Filename].                  ³
+³ (3) Key Config. :[PKEY:(D:Drive)(P=Pathname)Filename].                  ³
+³ (4) Data(Editor):[DATA:(D:Drive)(P=Pathname)Filename].                  ³
+³ MIDI CONFIGURATION FILE : SIZE:7684 bytes.                              ³
+³ Stores channel reassignment, Keyboard Split, Initialisation Strings,    ³
+³ Controllers redirection, Filter Detail, Pitch and Velocity changes.     ³
+³ KEY CONFIGURATION FILE  : SIZE:842 bytes.                               ³
+³ Stores File and Buffer Linked Programmable Keys configuration. The 1st  ³
+³ are linked to individual files on disk, and the last to specific editor ³
+³ (data or buffer dump) disk files via the editor.                        ³
+³ DATA FILES : SIZE 1-60000  bytes. (Larger files sent to Overflow buffer)³
+³ Stores midi codes data from the editor or buffer.                       ³
+³ For example : Entering                                                  ³
+³ MIDIWISE IRQA:5 SERA:1 PKEY:A:Keys\Perform.1 CONF:Midi1.c1 DATA:DumpA.01³
+³ from the DOS commandline (or via a batch file) will load the following  ³
+³ files: Perform.1 from drive A: DIR Keys, and HW.CFG, DumpA.01, and      ³
+³ Midi1.c1 from the current Directory. The sequence, combination, and     ³
+³ case of these parameters are not important.                             ³
+³                                                                         ³
+³ MAIN MENU HELP                                                          ³
+³ [E]ditor-Key Configuration: Full feature Data Editor. Data displayed    ³
+³                             as 256 byte HexDump. Programmable Key       ³
+³                             configuration defined inside editor.        ³
+³ [C]onfiguration Panel: Midi Channel, Velocity, Pitch, Controllers,      ³
+³                        and Keyboard split. Used by [A]ctivate option.   ³
+³ [B]uffer Display: Data displayed as 300 byte decimal dump. Colour       ³
+³                   tagging of midi code types. No editing from here.     ³
+³ [A]ctivate-Run: Serves as a midi through, by piping input midi codes    ³
+³                 through the configuration as set in options [F] and [C].³
+³                 Programmable Keys, if defined, are also active.         ³
+³ [F]ilter Configuration: Allows selected midi codes (or code groups),    ³
+³                         present in the input stream, to be filtered     ³
+³                         from the output stream.                         ³
+³ [O]ptions-Files: Options: Toggle Buffer storage, SysEx Detail, Code     ³
+³                           Display, Port Cfg, and Filter Enable.         ³
+³ [D]isk Files: Load and save, Data, Cfg, Key and Buffer (data) files.    ³
+³               Directory display.                                        ³
+³ [X]mit: Transmit midicodes entered a line, or singly, at a time.        ³
+³ [R]ead into Buffer: Raw input mididatastream stored in buffer. Not      ³
+³                     affected by any of the [C] option settings.         ³
+³ [S]end from Buffer: Transmit selected section (or all of) buffer.       ³
+³                                                                         ³
+³ BUFFER DUMP                                                             ³
+³ (1) Displays midi data in decimal format as a 300 byte dump per page.   ³
+³ (2) Midi codes are color tagged as follows:                             ³
+³     CODES            COLOUR                                             ³
+³     OOO-127 (OO-7F)  Blue    Midi Data Bytes.                           ³
+³     128-159 (8O-9F)  Black   Note Off and Note On Command Codes.        ³
+³     16O-239 (AO-EF)  Green   Channel Command Messages.                  ³
+³     241-255 (F1-FF)  Red     Timing, Active Sense etc.                  ³
+³     24O,241 (FO,F7)  Yellow  Sys Ex Start and End.                      ³
+³ (3) The following keys are active during the buffer display:            ³
+³     [Home]         : Return to page 0.                                  ³
+³     [End]          : Go to last page (Page 234).                        ³
+³     [Page Up-Down] : Previous and Next Pages.                           ³
+³     [E]            : End of Dump                                        ³
+³     [Q][ESC]       : Return to Main Menu.                               ³
+³     [Any other key]: Next Page.                                         ³
+³ (4) No Editing is possible from this option, but the Hex Dump as found  ³
+³     in the Editor (Option[E]) offers comprehensive editing functions.   ³
+³ (5) Both the normal buffer and overflow buffer (if filled) are displayed³
+³     as one. This differs from the Editor where the buffer to be edited  ³
+³     must be selected from the normal or overflow buffer. As a result,   ³
+³     the total dump size can vary between 60000 - 120000 bytes, depending³
+³     on memory available.                                                ³
+³  ACTIVATE RUN [Midi Through]: Activates a MIDI-IN->MIDI-OUT function:   ³
+³  ÚÄÄÄÄÄÄÄÄÄÄÄÄ¿                                                         ³
+³  ³MIDI DATA IN³  : [COM:1-4] [IRQ3,4,5,7] [Port A and/or B] (XTL:1-4)   ³
+³  ÀÄÄÄÄÄÂÄÄÄÄÄÄÙ    Serial Port configured as in file HW.CFG.            ³
+³ ÚÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄ¿                                                       ³
+³ ³INTERRUPT CONTR³: Expands all running status codes to normal.          ³
+³ ÀÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÙ  Controls circular temporary, input buffer: 256 bytes.³
+³ ÚÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄ¿: Main Menu [C]:(A) Output Port Assignment A,B,C,D     ³
+³ ³CHANNEL CONFIG.³                (B) Channel and Controllers redirection³
+³ ÀÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÙ                (C) Pitch, Velocity configuration.     ³
+³ ÚÄÄÄÄÄÄÁÄÄÄÄÄÄÄ¿                 (D) Keyboard Split configuration.      ³
+³ ³FILTER CONFIG.³ : Main Menu [F]: Define seperate filter list for each  ³
+³ ÀÄÄÄÄÄÄÂÄÄÄÄÄÄÄÙ                  midi input channel.                   ³
+³ÚÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄ¿: 4 Sets: (A) Remote Keyboard Control.       [12 keys] ³
+³³PROG.KEYS CONFIG³          (B) Initialising Strings.          [16 keys] ³
+³ÀÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÙ          (C) F1-F12: (Norm,Shift,Ctrl,Alt). [48 keys] ³
+³ ÚÄÄÄÄÄÄÁÄÄÄÄÄÄÄ¿           (D) A-Z: File-linked Keys (A-Z).   [26 keys] ³
+³ ³OPTIONS CONFIG³ : (A) Initialising Strings Enable: (Not)Transmitted.   ³
+³ ÀÄÄÄÄÄÄÂÄÄÄÄÄÄÄÙ   (B) Buffer storage : OUTPUT Data stored in buffer.   ³
+³        ³           (C) Codes display  : INPUT Data displayed.           ³
+³ ÚÄÄÄÄÄÄÁÄÄÄÄÄÄ¿    (D) System Ex Detail Enable: (Not)Displayed.         ³
+³ ³MIDI DATA OUT³  : Output Data stream [COM:1-4] and Ports A-D.          ³
+³ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÙ                                                         ³
+
