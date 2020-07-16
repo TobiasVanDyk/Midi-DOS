@@ -116,7 +116,7 @@ This used a modified RS232 serial card with an 8250 UART (the crystal is replace
       must be selected from the normal or overflow buffer. As a result,    
       the total dump size can vary between 60000 - 120000 bytes, depending 
       on memory available.                                                 
-   ACTIVATE RUN [Midi Through]: Activates a MIDI-IN->MIDI-OUT function:    
+   ACTIVATE RUN : Activates a MIDI-IN->MIDI-OUT function:    
                                                                          
     MIDI DATA IN   : [COM:1-4] [IRQ3,4,5,7] [Port A and/or B] (XTL:1-4)    
                    Serial Port configured as in file HW.CFG.             
