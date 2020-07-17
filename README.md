@@ -1,5 +1,5 @@
 # Midi-DOS
-This used a modified RS232 serial card with an 8250 UART (the crystal is replaced with a 5MHz or 10MHz crystal) as a Midi interface card. It is used to capture and send all midi data types. Refer to Readme.txt for more information (or as copied below).
+This used a modified legacy ISA RS232 serial card with an 8250 UART (the crystal is replaced with a 5MHz or 10MHz crystal) as a Midi interface card. It is used to capture and send all midi data types. Refer to Readme.txt for more information (or as copied below).
 
   ### HARDWARE CONFIGURATION : Page 1                                          
   (1) Configure: Interrupt Request (IRQ), Serial Port (SER), Board Freq.   
